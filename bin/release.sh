@@ -11,7 +11,7 @@ $(aws ecr get-login --no-include-email --region us-west-2)
 RELEASE_UUID=$(uuidgen)
 
 # Determine the url for the ECR repository and the target cluster name
-cd ./infrustructure
+cd ./infrastructure
 ECR_REPOSITORY_URL=$(terraform output ecr_repository_url)
 ECS_CLUSTER_NAME=$(terraform output ecs_cluster_name)
 cd ../
@@ -25,7 +25,7 @@ docker tag node-server:latest "${ECR_REPOSITORY_URL}:${RELEASE_UUID}"
 docker push "${ECR_REPOSITORY_URL}:${RELEASE_UUID}"
 
 # Create a new ECS Task Definition which tells containers in the cluster to run the latest image
-cd ./infrustructure
+cd ./infrastructure
 terraform apply -var="node_server_image_version=${RELEASE_UUID}"
 
 # Force a deployment so containers in the cluster run the latest image
