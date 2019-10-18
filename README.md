@@ -3,7 +3,7 @@ This repository creates a production-ready [Node.js](https://nodejs.org/en/about
 
 In under 15 minutes, you can deploy an AWS stack using:
 - [Docker](https://www.docker.com/) to make development and deployment easier.
-- [Terraform](https://www.terraform.io/) to automate infrustucture management. 
+- [Terraform](https://www.terraform.io/) to automate infrastucture management. 
 - [Amazon RDS](https://aws.amazon.com/rds/) to manage a Postgres database.
 - [Auto Scaling](https://aws.amazon.com/autoscaling/) to scale your application as your traffic grows.
 - [Elastic Container Service](https://aws.amazon.com/ecs/) to deploy a cluster of Docker containers across multiple availability zones.
