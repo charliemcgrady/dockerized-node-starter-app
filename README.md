@@ -3,7 +3,7 @@ This repository creates a production-ready [Node.js](https://nodejs.org/en/about
 
 In under 15 minutes, you can deploy an AWS stack using:
 - [Docker](https://www.docker.com/) to make development and deployment easier.
-- [Terraform](https://www.terraform.io/) to automate infrustucture management. 
+- [Terraform](https://www.terraform.io/) to automate infrastucture management. 
 - [Amazon RDS](https://aws.amazon.com/rds/) to manage a Postgres database.
 - [Auto Scaling](https://aws.amazon.com/autoscaling/) to scale your application as your traffic grows.
 - [Elastic Container Service](https://aws.amazon.com/ecs/) to deploy a cluster of Docker containers across multiple availability zones.
@@ -25,7 +25,7 @@ In under 15 minutes, you can deploy an AWS stack using:
 ##### Create an AWS account
 - Go to [AWS](https://aws.amazon.com) and create an account
 
-##### Create an AWS credentials for development
+##### Create AWS credentials for development
 When you log in to AWS with the email / password used to set up the account, you are signed in as a root user. AWS [strongly recommends](https://docs.aws.amazon.com/general/latest/gr/aws_tasks-that-require-root.html) to do normal user and administrative tasks as a non-root user.
 
 ```
@@ -43,7 +43,7 @@ aws iam add-user-to-group --user-name mcgradyc --group-name Admins
 aws configure --profile personal-website-mcgradyc # [ACTION] Enter mcgradyc credentials and us-west-2 as region
 
 # Create a key pair called charliemcgrady-key-pair (to use a custom name,
-# update the key_pair_name variable in `./infrustructure/vars.tf`). Make sure 
+# update the key_pair_name variable in `./infrastructure/vars.tf`). Make sure 
 # to save this key pair somewhere safe - it will be used to SSH into hosts.
 aws ec2 create-key-pair --key-name charliemcgrady-key-pair --query 'KeyMaterial' --output text > charliemcgrady-key-pair.pem
 chmod 400 charliemcgrady-key-pair.pem
@@ -63,7 +63,7 @@ export TF_VAR_ip_address_for_ssh=<ip_addres>/32
 
 We are now ready to deploy the stack:
 ```
-cd ./infrustructure
+cd ./infrastructure
 terraform init
 terraform apply
 ```
